@@ -19,6 +19,8 @@ git clone https://github.com/PythonWannabe1/MLB.git
 
 Open the server.py file and in the very top of it you'll see a lot of variables. I think
 they're pretty much self-explanatory, but here's what they do:
+
+
 |Variable name|What it does|Data type|
 |COMMAND_URL|Specifies the URL of the command and control server (Only scheme and host)|str|
 |CONTROL_PANEL_ROUTE|Specifies the route to control panel|str|
