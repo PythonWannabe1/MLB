@@ -37,4 +37,4 @@ to "/payload" then the payload will be requested from "http://4.20.69.0/payload"
 COMMAND_HOST, PAYLOAD_ROUTE and RESULTS_ROUTE in client.py must have the same values as COMMAND_URL, 
 PAYLOAD_ROUTE and RESULTS_ROUTE in server.py.
 
-Add the client.py to startup (and rename it to client.py**w** on windows) and enjoy.
+Add the client.py to startup applications (and rename it to client.py**w** on windows) and enjoy.
