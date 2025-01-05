@@ -12,7 +12,8 @@ spooky sounds and deleting itself. But you can use it however you like.
 
 On both client and server:
 ```bash
-git clone https://github.com/PythonWannabe1/MLB.git```
+git clone https://github.com/PythonWannabe1/MLB.git
+```
 
 ### Server
 
