@@ -22,6 +22,7 @@ they're pretty much self-explanatory, but here's what they do:
 
 
 |Variable name|What it does|Data type|
+|---|---|---|
 |COMMAND_URL|Specifies the URL of the command and control server (Only scheme and host)|str|
 |CONTROL_PANEL_ROUTE|Specifies the route to control panel|str|
 |PAYLOAD_ROUTE|Specifies the route to payload|str|
